@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.9
 
 MAINTAINER David Coppit <david@coppit.org>
 
@@ -19,6 +19,9 @@ wget https://raw.githubusercontent.com/phusion/baseimage-docker/9f998e1a09bdcb22
 chmod +x /sbin/setuser && \
 \
 rm -rf /var/cache/apk/* && \
+\
+# needed for making command written in php
+apk add --no-cache php7 && \
 \
 # RunIt stuff
 adduser -h /home/user-service -s /bin/sh -D user-service -u 2000 && \
