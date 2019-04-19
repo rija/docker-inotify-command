@@ -20,8 +20,8 @@ chmod +x /sbin/setuser && \
 \
 rm -rf /var/cache/apk/* && \
 \
-# needed for making command written in php
-apk add --no-cache php7 && \
+# needed for making command written in php and connecting to postgresql
+apk add --no-cache postgresql-dev php7 php7-pgsql php7-pdo php7-pdo_pgsql && \
 \
 # RunIt stuff
 adduser -h /home/user-service -s /bin/sh -D user-service -u 2000 && \
